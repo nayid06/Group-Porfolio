@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop-Motion Animation</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('img/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .pig {
+    width: 1000px;
+    height: 1000px;
+    position: relative;
+  }
+
+  .eye {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 450px;
+    left: 500px;
+  }
+</style>
+</head>
+<body>
+
+<div class="pig">
+  <img class="eye" id="eye" src="wide_open.jpg">
+</div>
+
+<script>
+  const eye = document.getElementById('eye');
+  const images = ['img/img 1.svg', 'img/img 2.svg', 'img/img 3.svg'];
+  let currentImageIndex = 0;
+
+  function changeEyeState() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    eye.src = images[currentImageIndex];
+  }
+
+  setInterval(changeEyeState, 200); // Change eye state every second
+</script>
+
+</body>
+</html>
